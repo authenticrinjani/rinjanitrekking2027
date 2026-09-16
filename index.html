@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Authentic Rinjani - thoughtful trekking, local guides, and easy Lombok transport for a more meaningful mountain journey.">
+	<title>Authentic Rinjani | Walk with the mountain</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #010166;
+			--iris: #6465ce;
+			--paper: #ffffff;
+			--mist: #f2f4ff;
+			--line: #dfe2f4;
+			--sun: #6495ee;
+			--sky: #6495ee;
+			--wash: #e9edff;
+			--muted: #656985;
+			--display: "Space Grotesk", sans-serif;
+			--body: "DM Sans", sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; color: var(--ink); background: #f8f9ff; font-family: var(--body); }
+		a { color: inherit; text-decoration: none; }
+		img { display: block; width: 100%; object-fit: cover; }
+		.wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+		.eyebrow { color: var(--iris); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+		.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid transparent; border-radius: 3px; padding: 14px 20px; font-size: .84rem; font-weight: 700; transition: transform .2s ease, background .2s ease; }
+		.button:hover { transform: translateY(-2px); }
+		.button-dark { color: #fff; background: var(--ink); }
+		.button-dark:hover { background: #20208e; }
+		.button-light { color: var(--ink); background: #fff; }
+		.button-outline { color: var(--ink); border-color: var(--line); background: transparent; }
+
+		header { position: fixed; z-index: 5; top: 18px; left: 0; width: 100%; color: var(--ink); }
+		.nav { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 82px; padding: 0 17px 0 24px; border: 1px solid rgba(1,1,102,.08); border-radius: 18px; background: rgba(255,255,255,.96); box-shadow: 0 12px 30px rgba(1,1,102,.14); }
+		.brand { display: flex; align-items: center; flex-shrink: 0; }
+		.brand-logo { width: 168px; height: 64px; object-fit: contain; object-position: left center; }
+		.nav-links { display: flex; align-items: center; gap: 24px; margin-left: auto; font-size: .78rem; font-weight: 600; }
+		.nav-links > a, .nav-trigger { color: var(--ink); opacity: .88; }
+		.nav-links > a:hover, .nav-trigger:hover { color: var(--iris); opacity: 1; }
+		.nav-trigger { display: inline-flex; align-items: center; gap: 7px; border: 0; padding: 31px 0; background: transparent; font: inherit; cursor: pointer; }
+		.chevron { display: inline-block; font-size: .8rem; transition: transform .2s ease; }
+		.menu-item.open .chevron { transform: rotate(180deg); }
+		.nav-contact { display: flex; align-items: center; gap: 9px; margin-left: 10px; line-height: 1.15; }
+		.contact-icon { display: grid; place-items: center; width: 33px; height: 33px; border-radius: 50%; color: #fff; background: #24b65a; font-size: .85rem; }
+		.contact-label { color: var(--muted); font-size: .65rem; font-weight: 500; }
+		.contact-number { color: var(--ink); font-size: .82rem; font-weight: 700; }
+		.nav-links .nav-cta { padding: 15px 24px; border-radius: 999px; color: #fff; background: var(--ink); opacity: 1; box-shadow: 0 7px 16px rgba(1,1,102,.25); }
+		.nav-links .nav-cta:hover { color: #fff; background: var(--ink); }
+		.menu { display: none; border: 0; color: var(--ink); background: transparent; font-size: 1.5rem; }
+		.mega-menu { position: absolute; top: calc(100% + 12px); left: 0; display: grid; grid-template-columns: 250px 1fr; width: min(820px, calc(100vw - 48px)); overflow: hidden; border: 1px solid rgba(100,101,206,.28); border-radius: 16px; background: rgba(255,255,255,.98); box-shadow: 0 20px 44px rgba(1,1,102,.18); opacity: 0; pointer-events: none; transform: translateY(-7px); transition: opacity .2s ease, transform .2s ease; }
+		.menu-item.open .mega-menu, .menu-item:hover .mega-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+		.mega-sidebar { padding: 25px 19px; background: var(--wash); }
+		.mega-kicker { margin: 0 0 13px 5px; color: var(--muted); font-size: .67rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+		.mega-tab { display: block; width: 100%; margin: 2px 0; padding: 13px 14px; border-radius: 11px; color: var(--ink); font-size: .81rem; font-weight: 700; text-align: left; }
+		.mega-tab:hover, .mega-tab.active { color: var(--ink); background: #fff; box-shadow: 0 5px 14px rgba(1,1,102,.09); }
+		.mega-tab.active { border-left: 3px solid var(--iris); padding-left: 11px; }
+		.mega-content { padding: 29px 34px; }
+		.mega-title { margin: 0 0 18px; color: var(--iris); font-family: var(--display); font-size: .88rem; letter-spacing: .02em; text-transform: uppercase; }
+		.mega-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 34px; }
+		.mega-links a { color: var(--ink); font-size: .88rem; }
+		.mega-links a:hover { color: var(--iris); }
+		.service-menu { left: auto; right: 0; grid-template-columns: 1fr; width: 340px; }
+		.service-menu .mega-content { padding: 25px; }
+		.service-menu .mega-links { grid-template-columns: 1fr; gap: 15px; }
+
+		.hero { position: relative; min-height: 720px; overflow: hidden; color: #fff; background: var(--ink); }
+		.hero::after { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, rgba(1,1,102,.92) 0%, rgba(1,1,102,.62) 48%, rgba(1,1,102,.12) 100%), linear-gradient(0deg, rgba(1,1,102,.58), transparent 48%); }
+		.hero-image { position: absolute; inset: 0; height: 100%; object-position: center; }
+		.hero-content { position: relative; z-index: 1; display: flex; align-items: center; min-height: 720px; padding-top: 84px; }
+		.hero-copy { width: min(680px, 100%); animation: rise .8s ease both; }
+		.hero-kicker { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; color: #d9dbff; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+		.hero-kicker::before { width: 28px; height: 2px; content: ""; background: var(--sun); }
+		h1, h2, h3 { margin: 0; font-family: var(--display); letter-spacing: -.055em; line-height: .98; }
+		h1 { max-width: 720px; font-size: clamp(3.6rem, 7vw, 6.7rem); }
+		.hero-copy p { max-width: 490px; margin: 26px 0 31px; color: #eceeff; font-size: 1.04rem; line-height: 1.65; }
+		.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+		.scroll-note { position: absolute; right: 0; bottom: 30px; z-index: 1; display: flex; align-items: center; gap: 10px; color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; writing-mode: vertical-rl; }
+		.scroll-note::before { width: 1px; height: 42px; content: ""; background: var(--sun); }
+
+		.intro { padding: 110px 0 95px; background: var(--paper); }
+		.intro-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: start; }
+		.intro h2 { max-width: 380px; margin-top: 16px; font-size: clamp(2.8rem, 5vw, 4.4rem); }
+		.intro-copy { padding-top: 8px; }
+		.intro-copy p { max-width: 540px; margin: 0 0 29px; color: var(--muted); font-size: 1.08rem; line-height: 1.75; }
+		.signature { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-size: .76rem; font-weight: 700; }
+		.signature::before { width: 34px; height: 1px; content: ""; background: var(--iris); }
+
+		.values { padding: 92px 0 110px; background: var(--wash); }
+		.section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 43px; }
+		.section-head h2 { max-width: 500px; margin-top: 14px; font-size: clamp(2.5rem, 4vw, 4rem); }
+		.section-head p { max-width: 320px; margin: 0; color: var(--muted); line-height: 1.6; }
+		.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
+		.value-card { min-height: 250px; padding: 29px 27px; background: var(--wash); }
+		.value-number { color: var(--iris); font-family: var(--display); font-size: .85rem; font-weight: 700; }
+		.value-card h3 { margin: 58px 0 12px; font-size: 1.55rem; letter-spacing: -.04em; }
+		.value-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+		.treks { padding: 110px 0; }
+		.trek-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+		.trek-card { position: relative; overflow: hidden; min-height: 440px; color: #fff; background: var(--ink); }
+		.trek-card img { position: absolute; inset: 0; height: 100%; transition: transform .5s ease; }
+		.trek-card:hover img { transform: scale(1.04); }
+		.trek-card::after { position: absolute; inset: 0; content: ""; background: linear-gradient(0deg, rgba(1,1,102,.94), transparent 70%); }
+		.trek-info { position: absolute; right: 23px; bottom: 23px; left: 23px; z-index: 1; }
+		.trek-tag { color: var(--sun); font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+		.trek-card h3 { margin: 9px 0 14px; font-size: 1.8rem; }
+		.trek-meta { display: flex; justify-content: space-between; color: #e3e4ff; font-size: .78rem; }
+
+		.review { padding: 95px 0; color: #fff; background: var(--ink); }
+		.review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+		.review h2 { max-width: 490px; margin: 15px 0 24px; font-size: clamp(2.7rem, 4vw, 4.3rem); }
+		.review .eyebrow { color: var(--sun); }
+		.review-copy { color: #d8d9f6; line-height: 1.7; }
+		.review-score { display: flex; align-items: flex-end; gap: 18px; margin: 30px 0; }
+		.score { font-family: var(--display); font-size: 4.4rem; line-height: .8; }
+		.stars { color: var(--sun); font-size: 1.35rem; letter-spacing: .1em; }
+		.review-count { color: #d8d9f6; font-size: .77rem; }
+		.review-card { padding: 39px; color: var(--ink); background: #fff; }
+		.quote-mark { color: var(--iris); font-family: Georgia, serif; font-size: 4rem; line-height: .4; }
+		.review-card blockquote { margin: 25px 0 27px; font-family: var(--display); font-size: 1.55rem; letter-spacing: -.04em; line-height: 1.25; }
+		.review-author { display: flex; align-items: center; gap: 12px; font-size: .78rem; font-weight: 700; }
+		.avatar { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; background: var(--iris); }
+
+		.transport { padding: 100px 0 110px; background: #fff; }
+		.transport-inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 370px; background: var(--iris); }
+		.transport-photo { min-height: 370px; background: url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85') center/cover; }
+		.transport-copy { display: flex; flex-direction: column; justify-content: center; padding: 54px; color: #fff; }
+		.transport-copy h2 { max-width: 420px; margin: 14px 0 18px; font-size: clamp(2.3rem, 4vw, 3.8rem); }
+		.transport-copy p { max-width: 420px; margin: 0 0 28px; color: #e2e2ff; line-height: 1.65; }
+		.transport-copy .button { align-self: flex-start; }
+
+		footer { position: relative; overflow: hidden; padding: 78px 0 25px; color: #d9dcff; background: var(--ink); font-size: .82rem; }
+		footer::before { position: absolute; top: -120px; right: -50px; width: 400px; height: 400px; border: 1px solid rgba(100,149,238,.25); border-radius: 50%; content: ""; box-shadow: 0 0 0 42px rgba(100,149,238,.05), 0 0 0 84px rgba(100,149,238,.035); }
+		.footer-grid { position: relative; display: grid; grid-template-columns: 1.35fr 1fr 1fr 1.1fr; gap: 42px; padding-bottom: 62px; }
+		.footer-logo { width: 205px; height: auto; margin-bottom: 22px; filter: brightness(0) invert(1); }
+		.footer-intro { max-width: 260px; margin: 0; color: #bfc5ed; line-height: 1.7; }
+		.footer-heading { margin: 5px 0 20px; color: #fff; font-family: var(--display); font-size: .9rem; letter-spacing: .02em; }
+		.footer-list { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
+		.footer-list a { color: #c5c9ed; }
+		.footer-list a:hover { color: var(--sky); }
+		.footer-contact { display: grid; gap: 13px; }
+		.footer-contact strong { display: block; margin-bottom: 3px; color: #fff; font-size: .82rem; }
+		.footer-contact span { color: #bdc3ea; }
+		.footer-bottom { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); color: #aeb5df; font-size: .72rem; }
+		.socials { display: flex; gap: 8px; }
+		.socials a { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid rgba(255,255,255,.22); border-radius: 50%; color: #fff; font-size: .7rem; }
+		.socials a:hover { border-color: var(--sky); background: var(--sky); color: var(--ink); }
+
+		@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+		@media (max-width: 800px) {
+			.wrap { width: min(100% - 34px, 600px); }
+			header { top: 10px; }
+			.nav { min-height: 64px; padding: 0 14px 0 16px; border-radius: 14px; }
+			.brand { font-size: .86rem; }
+			.brand-logo { width: 138px; height: 48px; }
+			.nav-links { position: absolute; top: calc(100% + 10px); right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; margin-left: 0; padding: 10px; border-radius: 14px; color: var(--ink); background: #fff; box-shadow: 0 15px 30px rgba(1,1,102,.15); }
+			.nav-links.open { display: flex; }
+			.nav-links > a, .nav-trigger { padding: 13px 12px; opacity: 1; }
+			.nav-trigger { justify-content: space-between; }
+			.nav-contact { margin: 7px 12px; }
+			.nav-links .nav-cta { text-align: center; }
+			.menu { display: block; }
+			.mega-menu, .service-menu { position: static; display: none; width: 100%; margin-bottom: 7px; border: 0; border-radius: 10px; box-shadow: none; opacity: 1; pointer-events: auto; transform: none; }
+			.menu-item.open .mega-menu { display: grid; }
+			.mega-menu { grid-template-columns: 1fr; }
+			.mega-sidebar { display: none; }
+			.mega-content { padding: 18px; }
+			.mega-links { gap: 13px; }
+			.service-menu .mega-content { padding: 18px; }
+			.hero, .hero-content { min-height: 650px; }
+			.hero-content { padding-top: 95px; }
+			.scroll-note { display: none; }
+			.intro, .values, .treks, .transport { padding: 75px 0; }
+			.intro-grid, .review-grid, .transport-inner { grid-template-columns: 1fr; gap: 34px; }
+			.section-head { display: block; margin-bottom: 28px; }
+			.section-head p { margin-top: 18px; }
+			.value-grid, .trek-grid { grid-template-columns: 1fr; }
+			.value-card { min-height: 210px; }
+			.value-card h3 { margin-top: 42px; }
+			.trek-card { min-height: 390px; }
+			.review { padding: 75px 0; }
+			.review-card { padding: 29px; }
+			.transport-inner, .transport-photo { min-height: 300px; }
+			.transport-copy { padding: 40px 28px; }
+			.footer-grid { grid-template-columns: 1fr 1fr; gap: 34px 22px; padding-bottom: 42px; }
+			.footer-bottom { display: block; }
+			.socials { margin-top: 17px; }
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="wrap nav">
+			<a class="brand" href="#top" aria-label="Authentic Rinjani home"><img class="brand-logo" src="https://authenticrinjani.com/wp-content/uploads/2026/01/Logo-Auth-Rinjani-768x420.png" alt="Authentic Rinjani"></a>
+			<button class="menu" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+			<nav class="nav-links" aria-label="Main navigation">
+				<div class="menu-item">
+					<button class="nav-trigger" aria-expanded="false">Rinjani trekking <span class="chevron">&#8964;</span></button>
+					<div class="mega-menu">
+						<div class="mega-sidebar">
+							<div class="mega-kicker">Explore the mountain</div>
+							<a class="mega-tab active" href="#treks">Summit treks</a>
+							<a class="mega-tab" href="#treks">Crater rim</a>
+							<a class="mega-tab" href="#treks">Custom adventure</a>
+							<a class="mega-tab" href="#why-us">Eco trekking</a>
+						</div>
+						<div class="mega-content">
+							<h3 class="mega-title">Rinjani experiences</h3>
+							<div class="mega-links">
+								<a href="#treks">2D1N Summit Trek</a>
+								<a href="#treks">3D2N Crater Rim Trek</a>
+								<a href="#treks">Senaru Trekking Route</a>
+								<a href="#treks">Sembalun Trekking Route</a>
+								<a href="#treks">Private Rinjani Trek</a>
+								<a href="#treks">Family-friendly options</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="menu-item">
+					<button class="nav-trigger" aria-expanded="false">Services <span class="chevron">&#8964;</span></button>
+					<div class="mega-menu service-menu">
+						<div class="mega-content">
+							<h3 class="mega-title">Travel made simple</h3>
+							<div class="mega-links">
+								<a href="#transport">Lombok airport transfer</a>
+								<a href="#transport">Hotel &amp; harbour transfer</a>
+								<a href="#reviews">Why choose us</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="#reviews">Reviews</a>
+				<div class="nav-contact"><span class="contact-icon">&#9742;</span><span><span class="contact-label">Talk to our team</span><br><span class="contact-number">+62 851 8688 4843</span></span></div>
+				<a class="nav-cta" href="https://wa.me/6285186884843" target="_blank" rel="noreferrer">Plan your trek <span aria-hidden="true">&#8599;</span></a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="top">
+		<section class="hero">
+			<img class="hero-image" src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=2200&q=90" alt="Hiker walking through a mountain landscape">
+			<div class="wrap hero-content">
+				<div class="hero-copy">
+					<div class="hero-kicker">Official sustainable Rinjani operator</div>
+					<h1>Trek Rinjani the authentic way.</h1>
+					<p>Discover Mount Rinjani with a licensed local team committed to safer journeys, responsible trekking, and a cleaner, greener future for Lombok.</p>
+					<div class="hero-actions">
+						<a class="button button-light" href="#treks">Explore our treks <span aria-hidden="true">&#8594;</span></a>
+						<a class="button" href="#transport" style="color:#fff;border-color:rgba(255,255,255,.45)">Arrange your arrival</a>
+					</div>
+				</div>
+				<div class="scroll-note">Scroll to discover</div>
+			</div>
+		</section>
+
+		<section class="intro" id="why-us">
+			<div class="wrap intro-grid">
+				<div><div class="eyebrow">The Authentic Rinjani way</div><h2>More than a trek.</h2></div>
+				<div class="intro-copy"><p>Rinjani is not just a destination to tick off. It is sunrise above the clouds, stories shared around a warm meal, and the quiet pride of reaching something difficult together. Our local team makes space for all of it.</p><span class="signature">Thoughtful travel, rooted in Lombok</span></div>
+			</div>
+		</section>
+
+		<section class="values" aria-label="Our values">
+			<div class="wrap">
+				<div class="section-head"><div><div class="eyebrow">Why travel with us</div><h2>Good for the trail.<br>Good for the island.</h2></div><p>Small groups, local expertise, and a lighter footprint on every step.</p></div>
+				<div class="value-grid">
+					<article class="value-card"><div class="value-number">01 / 03</div><h3>Rinjani Eco Trekking</h3><p>Carry less, care more. We reduce waste and work with local communities to protect the routes we love.</p></article>
+					<article class="value-card"><div class="value-number">02 / 03</div><h3>Local guides, real stories</h3><p>Our guides know the weather, the trails, and the legends behind the landscape. You will feel the difference.</p></article>
+					<article class="value-card"><div class="value-number">03 / 03</div><h3>Adventure, thoughtfully paced</h3><p>Clear planning and honest advice make a challenging trek feel exciting, personal, and safe.</p></article>
+				</div>
+			</div>
+		</section>
+
+		<section class="treks" id="treks">
+			<div class="wrap">
+				<div class="section-head"><div><div class="eyebrow">Find your way up</div><h2>Choose your Rinjani story.</h2></div><a class="button button-outline" href="https://wa.me/6285186884843" target="_blank" rel="noreferrer">Ask our team <span aria-hidden="true">&#8599;</span></a></div>
+				<div class="trek-grid">
+					<a class="trek-card" href="https://wa.me/6285186884843" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=85" alt="Mountain ridge under a starry sky"><div class="trek-info"><div class="trek-tag">The classic</div><h3>2D1N Summit Trek</h3><div class="trek-meta"><span>For the early risers</span><span>2 days</span></div></div></a>
+					<a class="trek-card" href="https://wa.me/6285186884843" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1000&q=85" alt="Hiker on a mountain trail"><div class="trek-info"><div class="trek-tag">The deep dive</div><h3>3D2N Crater Rim Trek</h3><div class="trek-meta"><span>For slow explorers</span><span>3 days</span></div></div></a>
+					<a class="trek-card" href="https://wa.me/6285186884843" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85" alt="Green mountain valley"><div class="trek-info"><div class="trek-tag">Make it yours</div><h3>Custom Adventure</h3><div class="trek-meta"><span>For your kind of wild</span><span>Flexible</span></div></div></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="review" id="reviews">
+			<div class="wrap review-grid"><div><div class="eyebrow">A little outside perspective</div><h2>Worth the climb.<br>Ask our guests.</h2><p class="review-copy">The best measure of a trek is how it stays with you afterwards. Read the latest notes from travellers who shared the trail with us.</p><div class="review-score"><span class="score">4.9</span><div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="review-count">Google rating · 120+ reviews</div></div></div><a class="button button-light" href="https://www.google.com/search?q=Authentic+Rinjani+reviews" target="_blank" rel="noreferrer">Read our Google reviews <span aria-hidden="true">&#8599;</span></a></div><div class="review-card"><div class="quote-mark">“</div><blockquote>From the first message to the last sunrise, everything felt considered. Our guide made the hard moments feel possible.</blockquote><div class="review-author"><span class="avatar">M</span><span>Marina K. · Australia</span></div></div></div>
+		</section>
+
+		<section class="transport" id="transport">
+			<div class="wrap transport-inner"><div class="transport-photo" role="img" aria-label="A road through the Lombok landscape"></div><div class="transport-copy"><div class="eyebrow" style="color:var(--sun)">Lombok transport</div><h2>Land softly.<br>Start easy.</h2><p>Airport pick-up, hotel transfers, and custom routes across Lombok. Let our local drivers take care of the road while you take in the island.</p><a class="button button-light" href="https://wa.me/6285186884843?text=Hi%20Authentic%20Rinjani%2C%20I%27d%20like%20to%20arrange%20Lombok%20transport." target="_blank" rel="noreferrer">Book Lombok transport <span aria-hidden="true">&#8599;</span></a></div></div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="wrap footer-grid">
+			<div>
+				<img class="footer-logo" src="https://authenticrinjani.com/wp-content/uploads/2026/01/Logo-Auth-Rinjani-768x420.png" alt="Authentic Rinjani">
+				<p class="footer-intro">Official sustainable Rinjani operator. Meaningful adventures, local expertise, and a lighter footprint on the mountain.</p>
+			</div>
+			<div><h3 class="footer-heading">Explore</h3><ul class="footer-list"><li><a href="#treks">Rinjani trekking</a></li><li><a href="#why-us">Eco trekking</a></li><li><a href="#transport">Lombok transport</a></li><li><a href="#reviews">Guest reviews</a></li></ul></div>
+			<div><h3 class="footer-heading">Company</h3><ul class="footer-list"><li><a href="#why-us">About Authentic Rinjani</a></li><li><a href="#why-us">Why choose us</a></li><li><a href="https://authenticrinjani.com/" target="_blank" rel="noreferrer">Visit official website</a></li><li><a href="mailto:authenticrinjani@gmail.com">Contact us</a></li></ul></div>
+			<div><h3 class="footer-heading">Talk to us</h3><div class="footer-contact"><a href="https://wa.me/6285186884843" target="_blank" rel="noreferrer"><strong>WhatsApp</strong><span>+62 851 8688 4843</span></a><a href="mailto:authenticrinjani@gmail.com"><strong>Email</strong><span>authenticrinjani@gmail.com</span></a><a href="https://maps.google.com/?q=Senaru+Lombok" target="_blank" rel="noreferrer"><strong>Basecamp</strong><span>Senaru, North Lombok</span></a></div></div>
+		</div>
+		<div class="wrap footer-bottom"><span>&#169; 2026 Authentic Rinjani. All rights reserved.</span><div class="socials"><a href="https://www.instagram.com/authenticrinjani" target="_blank" rel="noreferrer" aria-label="Instagram">IG</a><a href="https://www.facebook.com/authenticrinjani" target="_blank" rel="noreferrer" aria-label="Facebook">FB</a><a href="https://www.youtube.com/@authenticrinjai" target="_blank" rel="noreferrer" aria-label="YouTube">YT</a></div></div>
+	</footer>
+	<script>
+		const menu = document.querySelector('.menu');
+		const links = document.querySelector('.nav-links');
+		const menuItems = document.querySelectorAll('.menu-item');
+		menu.addEventListener('click', () => {
+			const isOpen = links.classList.toggle('open');
+			menu.setAttribute('aria-expanded', isOpen);
+		});
+		menuItems.forEach((item) => {
+			const trigger = item.querySelector('.nav-trigger');
+			trigger.addEventListener('click', (event) => {
+				event.stopPropagation();
+				const isOpen = item.classList.toggle('open');
+				menuItems.forEach((otherItem) => {
+					if (otherItem !== item) {
+						otherItem.classList.remove('open');
+						otherItem.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false');
+					}
+				});
+				trigger.setAttribute('aria-expanded', isOpen);
+			});
+		});
+		links.addEventListener('click', (event) => {
+			if (event.target.tagName === 'A') {
+				links.classList.remove('open');
+				menuItems.forEach((item) => item.classList.remove('open'));
+			}
+		});
+		document.addEventListener('click', () => {
+			menuItems.forEach((item) => {
+				item.classList.remove('open');
+				item.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false');
+			});
+		});
+	</script>
+</body>
+</html>
